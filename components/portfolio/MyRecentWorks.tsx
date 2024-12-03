@@ -67,7 +67,7 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
             <p className="text-gray-300 mt-2">{work.description}</p>
             <div className="mt-4">
               <div className="flex items-center text-purple-400 hover:text-white">
-                {!(work.title === "Office Automation System") ? (
+                {!(work.title === "Office Automation System" || "Pizza Ordering App" ) ? (
                   <Link
                     href={`${work.link}`}
                     target="_blank"

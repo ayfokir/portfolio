@@ -1,42 +1,42 @@
 'use client'
 import { LuAlignLeft } from "react-icons/lu";
-import { IoLogoFacebook } from "react-icons/io5";
-import { FaXTwitter } from "react-icons/fa6";
+// import { IoLogoFacebook } from "react-icons/io5";
+// import { FaXTwitter } from "react-icons/fa6";
 import { TiSocialLinkedin } from "react-icons/ti";
 import { VscGithub } from "react-icons/vsc";
 import { IoIosSunny } from "react-icons/io";
 import { MdDeveloperMode } from "react-icons/md";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { LiaTimesSolid } from "react-icons/lia";
 import Link from "next/link";
 function Navbar() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  // const [activeSection, setActiveSection] = useState("");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      let currentSection = "";
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-          currentSection = section.id;
-        }
-      });
-      setActiveSection(currentSection);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = document.querySelectorAll("section");
+  //     let currentSection = "";
+  //     sections.forEach((section) => {
+  //       const rect = section.getBoundingClientRect();
+  //       if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+  //         currentSection = section.id;
+  //       }
+  //     });
+  //     // setActiveSection(currentSection);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
   console.log("see isMenuOpen", isMenuOpen)
   return (
-    <nav className="flex gap-4 justify-between  bg-[#272730] p-4  overflow-hidden w-full  sticky top-0  z-[2000]">
+    <nav className="flex gap-4 justify-between  bg-[#272730] p-4  overflow-hidden w-full  sticky top-0  z-[3000]">
           <div>
           <MdDeveloperMode  color="white" size={20} className="hidden sm:block" />
           <div onClick={() => setIsMenuOpen((prev) =>  !prev)} >
-          {isMenuOpen? <LiaTimesSolid color="white" size={20}  /> : <LuAlignLeft color="white" size={20} className="sm:hidden"/> }       
+          {isMenuOpen? <LiaTimesSolid color="white" size={20} className="cursor-pointer"  /> : <LuAlignLeft color="white" size={20} className="sm:hidden cursor-pointer"/> }       
           </div>
           </div>
       <div className="text-white font-bold">Ayfokir.developer</div>

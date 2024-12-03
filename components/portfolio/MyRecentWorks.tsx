@@ -27,7 +27,7 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
       title: "Office Automation System",
       description:
         "A complete office automation system designed to streamline tasks such as scheduling, asset management, leave requests, and help desk or ticket creation.",
-      link: "#",
+      link: "Source Code Private",
       image: "/images/office-automation.png", // Replace with the actual image path
     },
     // {
@@ -44,7 +44,7 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
       className="bg-[#272730] text-white  md:px-24 sm:px-16 px-8 scroll-mt-20 py-14"
       id={`${id}`}
     >
-      <h1 className="text-4xl font-bold text-center text-purple-400 mb-11">
+      <h1 className="text-4xl font-bold text-center text-white mb-11">
         My Latest Works
       </h1>
 
@@ -66,15 +66,23 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
             </h2>
             <p className="text-gray-300 mt-2">{work.description}</p>
             <div className="mt-4">
-              <Link 
-              href={`${work.link}`}
-              target="_blank" 
-              rel="noopener noreferrer"
-              >
-                <div className="flex items-center text-purple-400 hover:text-white">
-                  Learn More <IoArrowForwardSharp className="ml-2" />
-                </div>
-              </Link>
+              <div className="flex items-center text-purple-400 hover:text-white">
+                {!(work.title === "Office Automation System") ? (
+                  <Link
+                    href={`${work.link}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="flex items-center text-purple-400 hover:text-white">
+                      Learn More <IoArrowForwardSharp className="ml-2" />
+                    </div>
+                  </Link>
+                ) : (
+                  <Link href={"#contact"}>
+                    <button className="underline">Source Code Private Request Access for Demo</button>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         ))}

@@ -1,5 +1,14 @@
 import React from "react";
+import Image from "next/image";
 
+interface Blog {
+  id: number;
+  category: string;
+  title: string;
+  date: string;
+  comments: string;
+  image: string;
+}
 const blogs = [
   {
     id: 1,
@@ -27,11 +36,13 @@ const blogs = [
   },
 ];
 
-const BlogCard = ({ blog }: any) => {
+const BlogCard = ({ blog }: { blog: Blog }) => {
   return (
     <div className="bg-[#1a1a2e] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <img
+      <Image
         src={blog.image}
+        width={300}
+        height={300}
         alt={blog.title}
         className="w-full h-52 object-cover"
       />
@@ -83,11 +94,11 @@ const BlogCard = ({ blog }: any) => {
   );
 };
 
-interface PropsTypes {
-  id: string
+interface BlogProps {
+  id: string;
 }
 
-const Blog = ({id}:PropsTypes) => {
+const Blog = ({ id }: BlogProps) => {
   return (
     <section className="bg-[#0f0f1f] py-12 md:px-24 sm:px-16 px-8" id={`${id}`}>
       <div className="">

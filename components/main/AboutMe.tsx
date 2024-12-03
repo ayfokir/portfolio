@@ -33,7 +33,7 @@ const AboutMe = ({id}: PropsTypes) => {
     {/* Greeting */}
     <div className="flex items-center space-x-2">
       <FaHandsClapping className="text-yellow-400 text-xl" />
-      <h5 className="text-lg font-semibold">Hello there, I'm Ayfokir</h5>
+      <h5 className="text-lg font-semibold">Hello there, I&apos;m Ayfokir</h5>
     </div>
 
     {/* Title */}
@@ -82,9 +82,9 @@ const AboutMe = ({id}: PropsTypes) => {
         </div>
       </div>
     </div>
-
+    
   </div>
-
+  
   {/* Right Section */}
   <div className="mt-10 lg:mt-0 lg:w-1/2 flex justify-center relative">
     <Image
@@ -99,8 +99,7 @@ const AboutMe = ({id}: PropsTypes) => {
     />
   </div>
 </div>
-
-  )
+)
 }
 
 export default AboutMe

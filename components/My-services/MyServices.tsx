@@ -38,7 +38,7 @@ const MyServices = ({id}:PropsTypes) => {
   const isSmall = useMediaQuery({ query: '(max-width: 640px)' });
   const isMedium = useMediaQuery({ query: '(min-width: 641px) and (max-width: 1024px)' });
 
-  const size = isSmall ? 70 : isMedium ? 60 : 35;
+  const size = isSmall ? 25 : isMedium ? 30 : 35;
   const [hoverIndex, setHoverIndex] = useState<number | null>(0); // Track hovered service
   
   return (
@@ -64,7 +64,7 @@ const MyServices = ({id}:PropsTypes) => {
                 {service.description}
                  {/* Conditionally render arrow icon based on hover */}
               </p>
-              <div> 
+              <div className='hidden md:block'> 
               {hoverIndex === index ? (
                 <HiOutlineArrowUpRight 
                 className="text-white opacity-100 transform translate-y-0 transition-all duration-700 ease-in-out "

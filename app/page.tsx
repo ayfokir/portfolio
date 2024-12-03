@@ -5,7 +5,7 @@ import Resume from "@/components/resume/Resume";
 import MySkills from "@/components/my-skills/MySkills";
 import GetInTouch from "@/components/getIn-touch/GetInTouch";
 import Footer from "@/components/footer/Footer";
-import Blog from "@/components/blog/Blog";
+// import Blog from "@/components/blog/Blog";
 export default function Home() {
   return (
     <div>

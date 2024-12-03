@@ -14,7 +14,7 @@ const GetInTouch = ({id}:PropsTypes) => {
   const [subject, setSubject] = useState("");
 
 
-  const handleSubmit   =  async(e: any)  =>  {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const result = await CreateContact({name, email, phone, message, subject})
       if(result.valid) {
@@ -33,7 +33,7 @@ const GetInTouch = ({id}:PropsTypes) => {
       <div className=" mb-12">
         <h1 className="text-4xl font-bold text-purple-500">Get in Touch</h1>
         <p className="text-gray-400 mt-4 max-w-[550px]">
-          I'm always excited to take on new projects and collaborate with innovative minds. 
+        I&apos;m always excited to take on new projects and collaborate with innovative minds. 
           If you have a project in mind or just want to chat about design, feel free to reach out!
         </p>
       </div>
@@ -43,10 +43,10 @@ const GetInTouch = ({id}:PropsTypes) => {
         {/* Contact Info */}
         <div className="space-y-6">
           {[
-            { icon: <FaPhoneAlt />, label: "Phone Number", value: "+1-234-567-8901" },
-            { icon: <FaEnvelope />, label: "Email", value: "contact@william.design" },
-            { icon: <FaSkype />, label: "Skype", value: "WilliamDesignUX" },
-            { icon: <FaMapMarkerAlt />, label: "Address", value: "0811 Erdman Prairie, Joaville CA" },
+            { icon: <FaPhoneAlt />, label: "Phone Number", value: "+251941215837" },
+            { icon: <FaEnvelope />, label: "Email", value: "ayfotsega19.27@gmail.com" },
+            { icon: <FaSkype />, label: "Telegram", value: "@yrakfA" },
+            { icon: <FaMapMarkerAlt />, label: "Address", value: "Addis Ababa, Ethiopia" },
           ].map((info, index) => (
             <div
               key={index}

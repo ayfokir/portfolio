@@ -34,9 +34,9 @@ const MySkills = ({id}:PropsTypes) => {
     <div className="bg-[#272730] text-gray-200 min-h-screen py-16 px-4" id={`${id}`}>
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-purple-500">My Skills</h1>
+        <h1 className="text-4xl font-bold text-white">My Skills</h1> I&apos;m
         <p className="text-gray-400 mt-4 mx-auto max-w-[800px]">
-          I always strive to transform real-world problems into effective solutions and take great pride in solving people's challenges. Nothing makes me happier than seeing a satisfied customer.
+          I always strive to transform real-world problems into effective solutions and take great pride in solving <p>People&apos;s</p> challenges. Nothing makes me happier than seeing a satisfied customer.
         </p>
       </div>
 

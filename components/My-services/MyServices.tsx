@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { HiOutlineArrowUpRight, HiOutlineArrowDownRight } from "react-icons/hi2";
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 
 interface PropsTypes {
   id: string
@@ -35,10 +35,10 @@ const MyServices = ({id}:PropsTypes) => {
     }
   ];
 
-  const isSmall = useMediaQuery({ query: '(max-width: 640px)' });
-  const isMedium = useMediaQuery({ query: '(min-width: 641px) and (max-width: 1024px)' });
+  // const isSmall = useMediaQuery({ query: '(max-width: 640px)' });
+  // const isMedium = useMediaQuery({ query: '(min-width: 641px) and (max-width: 1024px)' });
 
-  const size = isSmall ? 25 : isMedium ? 30 : 35;
+  // const size = isSmall ? 25 : isMedium ? 30 : 35;
   const [hoverIndex, setHoverIndex] = useState<number | null>(0); // Track hovered service
   
   return (
@@ -68,13 +68,13 @@ const MyServices = ({id}:PropsTypes) => {
               {hoverIndex === index ? (
                 <HiOutlineArrowUpRight 
                 className="text-white opacity-100 transform translate-y-0 transition-all duration-700 ease-in-out "
-                size={size}   // Increased size for better visibility
+                size={32}   // Increased size for better visibility
                 
                 />
               ) : (
                 <HiOutlineArrowDownRight 
                 className="text-purple-500 opacity-80 group-hover:text-white transform translate-y-2 transition-all duration-700 ease-in-out"
-                size={size} // Increased size for better visibility
+                size={32} // Increased size for better visibility
                 />
               )}
               </div>

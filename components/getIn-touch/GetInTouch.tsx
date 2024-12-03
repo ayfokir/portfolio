@@ -29,7 +29,7 @@ const GetInTouch = ({id}:PropsTypes) => {
   
   return (
     <div
-    className="bg-gray-900 text-gray-200 py-16 min-h-screen md:px-24 sm:px-16 px-8 flex items-center justify-center" 
+    className="bg-gray-900 text-gray-200 py-16 min-h-screen md:px-24 sm:px-16 px-8" 
     id={`${id}`}    
     >
       {/* Header */}
@@ -64,7 +64,7 @@ const GetInTouch = ({id}:PropsTypes) => {
           ))}
         </div>
 
-        {/* Contact Form 
+        {/* Contact Form  */}
 
         <form className="bg-gray-800 p-8 rounded-lg shadow-lg space-y-6"  >
         {error && <p className="text-red-500">{error}</p>}
@@ -147,7 +147,7 @@ const GetInTouch = ({id}:PropsTypes) => {
             <span className="ml-2 text-lg">&rarr;</span>
           </button>
         </form>
-               */}
+               
       </div>
     </div>
   );

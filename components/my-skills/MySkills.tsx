@@ -34,14 +34,14 @@ const MySkills = ({id}:PropsTypes) => {
     <div className="bg-[#272730] text-gray-200 min-h-screen py-16 px-4" id={`${id}`}>
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-white">My Skills</h1> I&apos;m
+        <h1 className="text-4xl font-bold text-purple-500">My Skills</h1> 
         <p className="text-gray-400 mt-4 mx-auto max-w-[800px]">
-          I always strive to transform real-world problems into effective solutions and take great pride in solving <p>People&apos;s</p> challenges. Nothing makes me happier than seeing a satisfied customer.
+        I&apos;m always strive to transform real-world problems into effective solutions and take great pride in solving People&apos;s challenges. Nothing makes me happier than seeing a satisfied customer.
         </p>
       </div>
 
       {/* Skills Grid */}
-      <div className="flex gap-8 mx-auto max-w-[900px] flex-wrap justify-center">
+      <div className="flex gap-8 mx-auto max-w-[900px] flex-wrap justify-center">           
         {skills.map((skill, index) => (
           <div
             key={index}

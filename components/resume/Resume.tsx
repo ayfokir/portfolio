@@ -59,7 +59,7 @@ const Resume = ({id}:PropsTypes) => {
     <div className="bg-[#212125] text-gray-200 min-h-screen py-16 md:px-24 sm:px-16 px-8" id={`${id}`}>
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-white">My Resume</h1>
+        <h1 className="text-4xl font-bold text-purple-500">My Resume</h1>
         <p className="text-gray-400 mt-4">
           I believe that working hard and trying to learn every day will make me improve in satisfying my customers.
         </p>

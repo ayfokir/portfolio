@@ -44,7 +44,7 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
       className="bg-[#272730] text-white  md:px-24 sm:px-16 px-8 scroll-mt-20 py-14"
       id={`${id}`}
     >
-      <h1 className="text-4xl font-bold text-center text-white mb-11">
+      <h1 className="text-4xl font-bold text-center text-purple-500 mb-11">
         My Latest Works
       </h1>
 
@@ -61,25 +61,25 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
               height={60}
               className="rounded-t-lg object-cover"
             />
-            <h2 className="text-2xl font-semibold text-purple-400 mt-4">
+            <h2 className="text-2xl font-semibold text-gray-300 mt-4">
               {work.title}
             </h2>
-            <p className="text-gray-300 mt-2">{work.description}</p>
+            <p className="text-gray-400 mt-2">{work.description}</p>
             <div className="mt-4">
-              <div className="flex items-center text-purple-400 hover:text-white">
-                {!(work.title === "Office Automation System" || "Pizza Ordering App" ) ? (
+              <div className="flex items-center text-white hover:text-white">
+                {!(work.title === "Office Automation System" ) ? (
                   <Link
                     href={`${work.link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="flex items-center text-purple-400 hover:text-white">
+                    <div className="flex items-center text-blue-500 hover:text-white">
                       Learn More <IoArrowForwardSharp className="ml-2" />
                     </div>
                   </Link>
                 ) : (
                   <Link href={"#contact"}>
-                    <button className="underline">Source Code Private Request Access for Demo</button>
+                    <button className="underline text-blue-600">Source Code is Private Request Access for Demo</button>
                   </Link>
                 )}
               </div>

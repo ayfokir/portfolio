@@ -6,6 +6,10 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
+  "compilerOptions": {
+    "noImplicitAny": false
+  },
   theme: {
     extend: {
       colors: {

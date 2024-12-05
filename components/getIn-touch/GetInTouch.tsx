@@ -1,32 +1,32 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaSkype, FaMapMarkerAlt } from "react-icons/fa";
 import { CreateContact } from "./CreateContact";
+import { useActionState } from "react";
+import { Notification } from "../notification/Notification";
 interface PropsTypes {
   id: string
 }
 const GetInTouch = ({id}:PropsTypes) => {
-  const [error, setError] = useState<string | null>(null);
-  const [name , setName]  = useState("")
-  const [email , setEmail]  = useState("")
-  const [phone , setPhone]  = useState("")
-  const [message , setMessage]  = useState("")
-  const [subject, setSubject] = useState("");
+  const [state, action, isPending]   = useActionState(CreateContact, null, "/event")
+  const [notificationContent, setNotificationContent] = useState<null | { message: string; Status: string }>(null);
 
+  console.log("see the state state :", state)
+  console.log("state.valide", state?.valid)
+  useEffect(() => {
+    if (state && state.valid !== undefined) {
+      if (state.valid) {
+        setNotificationContent({ message: state.message, Status: 'success' });
+      } else {
+        setNotificationContent({ message: state.message || 'Something happened', Status: 'error' });
+      }
+      // Clear the notification after showing it
+      setTimeout(() => {
+        setNotificationContent(null);
+      }, 5000);
+    }
+  }, [state]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const result = await CreateContact({name, email, phone, message, subject})
-      if(result.valid) {
-        console.log("see result", result)
-      alert(result.message)
-      }
-      else{
-        setError(result.message)
-        alert(result.message)
-      }
-  }
-  
   return (
     <div
     className="bg-gray-900 text-gray-200 py-16 min-h-screen md:px-24 sm:px-16 px-8" 
@@ -65,9 +65,8 @@ const GetInTouch = ({id}:PropsTypes) => {
         </div>
 
         {/* Contact Form  */}
-
-        <form className="bg-gray-800 p-8 rounded-lg shadow-lg space-y-6"  >
-        {error && <p className="text-red-500">{error}</p>}
+        <form action={action}  className="bg-gray-800 p-8 rounded-lg shadow-lg space-y-6"  >
+        {/* {state?.message && <p className="text-red-500">{state.message}</p>} */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
@@ -78,7 +77,6 @@ const GetInTouch = ({id}:PropsTypes) => {
                 id="userName"
                 type="text"
                 name="name"
-                onChange={(e) => setName(e.target.value)}
                 placeholder="Your Name"
                 className="w-full p-3 mt-2 rounded-md bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
@@ -91,7 +89,6 @@ const GetInTouch = ({id}:PropsTypes) => {
                 id="userEmail"
                 name="email"
                 type="email"
-                onChange={(e) => setEmail(e.target.value)}
                 placeholder="email"
                 className="w-full p-3 mt-2 rounded-md bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
@@ -106,7 +103,6 @@ const GetInTouch = ({id}:PropsTypes) => {
                 id="userPhone"
                 type="text"
                 name="phone"
-                onChange={(e) => setPhone(e.target.value)}
                 placeholder="phone"
                 className="w-full p-3 mt-2 rounded-md bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
@@ -118,7 +114,6 @@ const GetInTouch = ({id}:PropsTypes) => {
               <input
                 id="YourSubject"
                 name="subject"
-                onChange={(e) => setSubject(e.target.value)}
                 type="text"
                 placeholder="I want to contact for..."
                 className="w-full p-3 mt-2 rounded-md bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -132,23 +127,24 @@ const GetInTouch = ({id}:PropsTypes) => {
             <textarea
               id="yourMessage"
               name="message"
-              onChange={(e) => setMessage(e.target.value)}
               placeholder="Your message here..."
               rows={4}
               className="w-full p-3 mt-2 rounded-md bg-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
             ></textarea>
           </div>
           <button
-            // type="submit"
-            onClick={(e) => handleSubmit(e)}
+            type="submit"
+            disabled = {isPending}
+            // onClick={(e) => handleSubmit(e)}
             className="w-full bg-purple-500 text-gray-200 py-3 rounded-md hover:bg-purple-600 transition-colors flex items-center justify-center"
           >
             Send Message
             <span className="ml-2 text-lg">&rarr;</span>
           </button>
         </form>
-               
       </div>
+         {/* Notification Component */}
+         {notificationContent && <Notification content={notificationContent} />}
     </div>
   );
 };

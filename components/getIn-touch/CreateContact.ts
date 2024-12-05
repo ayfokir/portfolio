@@ -1,10 +1,8 @@
-'use server'
+'use server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-
-// Define the type for contacts
 interface Contact {
   name: string;
   email: string;
@@ -13,29 +11,33 @@ interface Contact {
   message: string;
 }
 
-export const CreateContact = async (contacts: Contact) => {
-    'use server'
-// Retrieve form values
-const { name, email, phone, subject, message }    = contacts
-// Validate form fields
-if (!name || !email || !phone || !subject || !message) {
-return{valid: false, message: "All fields are required"};
+export const CreateContact = async (previousState: unknown, formData: FormData | null) => {
+  if (!formData) {
+    return { valid: false, message: "Form data is missing. Please fill in all fields." };
+  }
 
-}
-try {
-console.log("Form data submitted:", { name, email, phone, subject, message });
-// return "Message sent successfully!"
-// Simulate API request (replace this with your actual logic)
-// await new Promise((resolve) => setTimeout(resolve, 1000));
-      await prisma.contact.create({
-    data: contacts,
-  });
+  const name = formData.get("name")?.toString() || "";
+  const email = formData.get("email")?.toString() || "";
+  const phone = formData.get("phone")?.toString() || "";
+  const subject = formData.get("subject")?.toString() || "";
+  const message = formData.get("message")?.toString() || "";
 
-return({message:"Message sent successfully!", valid: true});
-} catch (err) {
-console.error("Error submitting form:", err);
-return({message: "Failed to send the message. Please try again.", valid: false});
-}
+  if (!name || !email || !phone || !subject || !message) {
+    return { valid: false, message: "Form data is missing. Please fill in all fields." };
+  }
 
-}
+  const contacts: Contact = { name, email, phone, subject, message };
 
+  try {
+    console.log("Form data submitted:", contacts);
+
+    await prisma.contact.create({
+      data: contacts,
+    });
+
+    return { message: "Received! I will contact you soon!", valid: true };
+  } catch (error) {
+    console.error("Database Insertion Error:", error);
+    return { message: "Failed to send the message. Please try again.", valid: false };
+  }
+};

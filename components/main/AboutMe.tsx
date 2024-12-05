@@ -16,22 +16,23 @@ interface PropsTypes {
 
 const AboutMe = ({id}: PropsTypes) => {
   return (
-    <div className="relative flex flex-col lg:flex-row items-center justify-between bg-[#1a1a1a] p-8 text-white md:px-24 sm:px-16 px-8" id={`${id}`}>
+
+    <div className="  relative flex flex-col lg:flex-row items-center justify-between bg-[#1a1a1a]  text-white md:px-24 sm:px-16 px-8" id={`${id}`}>
   {/* Left Section */}
   
     {/* Grid Background */}
-    <div
+    {/* <div
   className="absolute inset-0 bg-black bg-[url('/images/gride-new.jpg')] bg-repeat opacity-5"
   style={{
-    backgroundSize: '50px 50px', // Adjust the size of the grid squares
+    backgroundSize: '40px 40px', // Adjust the size of the grid squares
     filter: 'blur(0.5px)', // Add a blur effect
   }}
-></div>
+></div> */}
     
 
-  <div className=" relative lg:w-1/2 space-y-6 flex flex-col gap-1 ">
+  <div className=" relative lg:w-1/2 space-y-6 flex flex-col gap-1    lg:items-start lg:pt-0 pt-20">
     {/* Greeting */}
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 ">
       <FaHandsClapping className="text-yellow-400 text-xl" />
       <h5 className="text-lg font-semibold">Hello there, I&apos;m Ayfokir</h5>
     </div>
@@ -43,7 +44,7 @@ const AboutMe = ({id}: PropsTypes) => {
     </h2>
     
     {/* Description */}
-    <p className="text-gray-400 text-lg !mt-5">
+    <p className="text-gray-400 text-lg !mt-5 te ">
       I assist individuals and brands in achieving their objectives by creating
       and developing user-focused digital products and interactive experiences.
     </p>
@@ -51,8 +52,8 @@ const AboutMe = ({id}: PropsTypes) => {
     {/* Buttons */}
     <div className='flex flex-col '>
       <div className="flex space-x-4 mt-6">
-        <Link
-        href="/resume/Ayfokir-Tsega-Full-Stack-Developer-2024 (2) (1).pdf" download="Ayfokir-Tsega-Full-Stack-Developer-2024 (2) (1).pdf" className="flex items-center space-x-2"
+        <Link 
+        href="/resume/Ayfokir-Tsega-Full-Stack-Developer-2024.pdf" download="Ayfokir-Tsega-Full-Stack-Developer-2024.pdf" className="flex items-center space-x-2"
         target='_blank'
         >
           <button className="flex items-center space-x-2 bg-[#7050F3] sm:px-6 px-2 sm:py-3 py-1 rounded-lg text-white font-medium hover:bg-purple-500">
@@ -86,14 +87,14 @@ const AboutMe = ({id}: PropsTypes) => {
   </div>
   
   {/* Right Section */}
-  <div className="mt-10 lg:mt-0 lg:w-1/2 flex justify-center relative">
+  <div className=" lg:mt-0 lg:w-1/2 flex items-start relative ">
     <Image
       // src="/images/The Greate Man.jpg"
       // src="/images/The_Greate_Man-removebg-preview.png"
-      // src="/images/portfolio.jpg"
-      src="/images/portfolio-removebg-preview.png"
-      width={500}
-      height={900}
+      src="/images/last.png"
+      // src="/images/portfolio-removebg-preview.png"
+      width={440}
+      height={600}
       alt="Yoni The Greate Man"
       className="rounded-lg shadow-lg"
     />

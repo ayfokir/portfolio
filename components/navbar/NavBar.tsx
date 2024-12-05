@@ -31,7 +31,7 @@ function Navbar() {
   // }, []);
   console.log("see isMenuOpen", isMenuOpen);
   return (
-<nav className="flex items-center justify-between bg-[#272730] p-4 overflow-hidden w-full sticky top-0 z-[3000]">
+        <nav className="flex items-center justify-between bg-[#272730] p-4 overflow-hidden w-full sticky top-0 z-[3000]">
         <div>
         <MdDeveloperMode color="white" size={20} className="hidden sm:block" />
         <div onClick={() => setIsMenuOpen((prev) => !prev)}>

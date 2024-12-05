@@ -21,13 +21,13 @@ const AboutMe = ({id}: PropsTypes) => {
   {/* Left Section */}
   
     {/* Grid Background */}
-    {/* <div
+    <div
   className="absolute inset-0 bg-black bg-[url('/images/gride-new.jpg')] bg-repeat opacity-5"
   style={{
     backgroundSize: '40px 40px', // Adjust the size of the grid squares
     filter: 'blur(0.5px)', // Add a blur effect
   }}
-></div> */}
+></div>
     
 
   <div className=" relative lg:w-1/2 space-y-6 flex flex-col gap-1    lg:items-start lg:pt-0 pt-20">

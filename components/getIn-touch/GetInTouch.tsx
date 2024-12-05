@@ -1,28 +1,30 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaSkype, FaMapMarkerAlt } from "react-icons/fa";
 import { CreateContact } from "./CreateContact";
 import { useActionState } from "react";
-import { Notification } from "../notification/Notification";
+// import { Notification } from "../notification/Notification";
 interface PropsTypes {
   id: string
 }
 const GetInTouch = ({id}:PropsTypes) => {
   const [state, action, isPending]   = useActionState(CreateContact, null, "/event")
-  const [notificationContent, setNotificationContent] = useState<null | { message: string; Status: string }>(null);
+  // const [notificationContent, setNotificationContent] = useState<null | { message: string; Status: string }>(null);
 
   console.log("see the state state :", state)
   console.log("state.valide", state?.valid)
   useEffect(() => {
     if (state && state.valid !== undefined) {
       if (state.valid) {
-        setNotificationContent({ message: state.message, Status: 'success' });
+        // setNotificationContent({ message: state.message, Status: 'success' });
+        alert(state.message)
       } else {
-        setNotificationContent({ message: state.message || 'Something happened', Status: 'error' });
+        // setNotificationContent({ message: state.message || 'Something happened', Status: 'error' });
+        alert(state.message)
       }
       // Clear the notification after showing it
       setTimeout(() => {
-        setNotificationContent(null);
+        // setNotificationContent(null);
       }, 5000);
     }
   }, [state]);
@@ -144,7 +146,7 @@ const GetInTouch = ({id}:PropsTypes) => {
         </form>
       </div>
          {/* Notification Component */}
-         {notificationContent && <Notification content={notificationContent} />}
+         {/* {notificationContent && <Notification content={notificationContent} />} */}
     </div>
   );
 };

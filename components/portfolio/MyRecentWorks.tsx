@@ -20,7 +20,7 @@ const MyRecentWorks = ({ id }: PropsTypes) => {
       title: "Pizza Ordering App",
       description:
         "A user-friendly pizza ordering application that allows users to customize their orders and track deliveries in real-time.",
-      link: "https://pizza-ordering-service-app-three.vercel.app/",
+      link: "https://pizza-ordering-service-app-csbo.vercel.app/",
       image: "/images/pizza.png", // Replace with the actual image path
     },
     {
